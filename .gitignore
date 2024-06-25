@@ -7,4 +7,4 @@ venv
 /_site/
 airflow
 *.ipynb
-exercises
+
