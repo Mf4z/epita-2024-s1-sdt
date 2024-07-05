@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 
 import requests
@@ -20,7 +21,13 @@ def exercise7():
             results.extend(response["results"])
         return {"people": results}
 
+    @task
+    def write_users(path: str, data: dict):
+        with open(path, "w") as f:
+            json.dump(data["people"], f)
+
     people = get_people()
+    write_users("./airflow/dags/data/exercise7.json", people)
 
 
 exercise7()
